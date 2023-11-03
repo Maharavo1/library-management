@@ -66,8 +66,6 @@ paths:
   /authors:
   #TODO2: complete GET (can be filtered by name) - PUT - DELETE
   #---> answer
-  
-  /authors:
     get:
       summary: Get all authors or filter by name
       operationId: getAuthors
