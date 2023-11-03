@@ -110,26 +110,41 @@ paths:
           schema:
             type: string
 
-components:
-  schemas:
-    Book:
-      type: object
-      properties:
-        id:
-          type: string
-        bookName:
-          type: string
-        author:
-          #TODO1: set it as a component with properties : id, name, sex (M or F)
-          type: string
-        pageNumbers:
-          type: integer
-        topic:
-          type: string
-          enum:
-            - ROMANCE
-            - COMEDY
-            - OTHER
-        releaseDate:
-          type: string
-          format: date
+
+ #TODO1: set it as a component with properties : id, name, sex (M or F)
+          #--->answer
+        
+  components:
+    schemas:
+      Book:
+        type: object
+        properties:
+          id:
+            type: string
+          bookName:
+            type: string
+          author:
+            $ref: '#/components/schemas/Author'
+          pageNumbers:
+            type: integer
+          topic:
+            type: string
+            enum:
+              - ROMANCE
+              - COMEDY
+              - OTHER
+          releaseDate:
+            type: string
+            format: date
+      Author:
+        type: object
+        properties:
+          id:
+            type: string
+          name:
+            type: string
+          sex:
+            type: string
+            enum:
+              - M
+              - F
