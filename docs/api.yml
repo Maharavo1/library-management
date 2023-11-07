@@ -71,6 +71,57 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Book'
+  /books/{bookId}/authors/{authorId}:
+    put:
+      tags: 
+        - Books
+      summary:  Associate a specific book with a particular author
+      operationId: addAuthorToBook
+      parameters:
+       - in: path
+         name: bookId
+         schema:
+          type: string
+         required: true
+       - in: path
+         name: authorId
+         schema:
+          type: string
+         required: true
+      responses:
+        200:
+          description: The list of created or updated books
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
+  /books/authors:
+    put:
+      tags:
+        - Books
+      summary: associate multiple books to an author
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object  
+              properties:
+                bookId: 
+                  type: string
+                authorId:
+                  type: string
+      responses:
+        200:
+          description: A book has been associate to an author
+          content:
+            application/json:
+              schema:
+                type: array
+                items: 
+                  $ref: "#/components/schemas/Book"
   /authors:
     get:
       summary: Get all authors
