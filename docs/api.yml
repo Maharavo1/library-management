@@ -258,6 +258,57 @@ paths:
                     items:
                        type: string
                        $ref: '#/components/schemas/Topic'
+  /books/{bookId}/topics/{topicsId}:
+    put:
+      tags: 
+        - topics
+      summary: associate some books with some topics
+      operationId: addTopicToBook
+      parameters:
+      - in: path
+        name: bookId
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: TopicId
+        schema:
+          type: string
+        required: true
+      responses:
+        200:
+          description: The list of created or updated books
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
+  /books/topics:
+    put:
+      tags:
+        - Books
+      summary: associate multiple books to an topic
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object  
+              properties:
+                bookId: 
+                  type: string
+                authorId:
+                  type: string
+      responses:
+        200:
+          description: A book has been associate to an topic
+          content:
+            application/json:
+              schema:
+                type: array
+                items: 
+                  $ref: "#/components/schemas/Book"
 components:
   schemas:
     crupdateBook:
