@@ -202,6 +202,62 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Author'
+  
+  /topics :
+      get:
+        tags:
+          - topics
+        summary: get All topics
+        operationId: getTopics
+        
+        responses:
+          200 :
+            description: List of all topic
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Topic' 
+
+      put:
+        tags:
+           - topics
+        summary: Create or update topics
+        operationId: crupdateTopic
+        requestBody:
+           content:
+              application/json:
+                 schema :
+                   type: array
+                   items:
+                     $ref: '#/components/schemas/Topic'
+                   
+        responses:
+          200 :
+            description:  Topics created or updated successfully
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Topic'
+      delete :
+        tags:
+           - topics
+        summary: Delete topics
+        operationId: DeleteTopics
+        description: Deletes one or multiple topics
+
+
+        responses:
+          200:
+            description: List of deleted topics
+            content:
+                application/json:
+                  schema:
+                    type: array
+                    items:
+                       type: string
+                       $ref: '#/components/schemas/Topic'
 components:
   schemas:
     crupdateBook:
@@ -251,3 +307,10 @@ components:
         result : 
           type: array
           items: {}
+    Topic:
+      type: object
+      properties:
+        id: 
+          type: string
+        topicName:
+          type: string
