@@ -309,6 +309,29 @@ paths:
                 type: array
                 items: 
                   $ref: "#/components/schemas/Book"
+  /authors/topics :
+        get: 
+          summary: get all author with of topics 
+          operationId: getAuthorTopic
+          tags:
+            - topics
+          responses:
+            200:
+              description: list of author with topic
+              content:
+                  application/json:
+                    schema :
+                      type: array
+                      items:
+                          type: string
+                          $ref: '#/components/schemas/AuthorTopic'
+                  
+                    
+
+                
+                   
+                  
+
 components:
   schemas:
     crupdateBook:
