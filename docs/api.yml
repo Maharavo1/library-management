@@ -365,3 +365,10 @@ components:
           type: string
         topicName:
           type: string
+    AuthorTopic :
+       type: object
+       properties:
+         id:
+           type: string
+         author:
+           $ref: '#/components/schemas/Author'
