@@ -378,6 +378,16 @@ components:
            type: string
          author:
            $ref: '#/components/schemas/Author'
+    status:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          description: statut code responses
+        message:
+          type: string
+          description: message with the status code
+      
 ##parameters
   parameters:
    queryPagination:
