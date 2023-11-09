@@ -315,6 +315,7 @@ paths:
                       items:
                           type: string
                           $ref: '#/components/schemas/AuthorTopic'
+    
 components:
   schemas:
     crupdateBook:
@@ -413,7 +414,13 @@ components:
         allOf:
         - $ref: '#/components/schemas/body'
         - $ref: '#/components/schemas/responses'
-      
+    ImportAuthor:
+      type: object
+      properties:
+        authorName:
+          type: string
+        sex:
+          $ref: '#/components/schemas/Sex'      
 ##parameters
   parameters:
    queryPagination:
