@@ -515,6 +515,22 @@ components:
           code: 400
           message: BAD REQUEST
         body: {}
+    ForbiddenBody:
+      allOf:
+        - $ref: '#/components/schemas/ResponseBodyTemplate'
+      example:
+        status:
+          code: 403
+          message: Forbidden
+        body: {}
+    InternalBody:
+      allOf:
+        - $ref: '#/components/schemas/ResponseBodyTemplate'
+      example:
+        status:
+          code: 500
+          message: Internal Server Error
+        body: {}
     BookListBody:
       allOf:
         - $ref: '#/components/schemas/ResponseBodyTemplate'
@@ -523,7 +539,19 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/Book'
-      
+    403:
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ForbiddenBody'
+    500:
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/InternalBody'
+  
 ##parameters
   parameters:
    queryPagination:
