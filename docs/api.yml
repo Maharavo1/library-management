@@ -552,6 +552,15 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/InternalBody'
+    Visitor:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        reference:
+          type: string
   
 ##parameters
   parameters:
