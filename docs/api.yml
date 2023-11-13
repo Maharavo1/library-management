@@ -593,7 +593,24 @@ components:
           type: string
         reference:
           type: string
-  
+    Activity:
+      type: object
+      properties:
+        vId:
+          type: string
+        bId:
+          type: string
+        createdAt:
+          type: string
+          format: timestamp
+
+    Borrowing:
+      allOf:
+        - $ref: '#/components/schemas/Activity'
+
+    Return:
+      allOf:
+        - $ref: '#/components/schemas/Activity'
 ##parameters
   parameters:
    queryPagination:
