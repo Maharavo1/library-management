@@ -8,6 +8,7 @@ servers:
 tags:
   - Books
   - Authors
+  - Visitors
 paths:
   /books:
     get:
