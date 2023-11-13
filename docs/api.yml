@@ -367,6 +367,22 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Author'
+  /visitors/{vId}/borrow/{bId}:
+    put:
+      summary: Visitor borrows a book
+      operationId: borroBook
+      tags:
+        - Visitors
+      parameters:
+        - $ref: '#/components/parameters/VisitorId'
+        - $ref: '#/components/parameters/BookId'
+      responses:
+        200:
+          description: Book successfully borrowed by the visitor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book'
     
 components:
   schemas:
