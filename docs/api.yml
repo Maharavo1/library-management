@@ -430,6 +430,24 @@ paths:
                   anyOf:
                     - $ref: '#/components/schemas/Borrowing'
                     - $ref: '#/components/schemas/Return'
+  /books/{status}:
+    get:
+      tags:
+        - Books
+      summary: Get the list of books  on status
+      operationId: getBooksByStatus
+      parameters:
+        - $ref: '#/components/parameters/BookStatus'
+      responses:
+        200:
+          description: The list of books based on status
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
+
     
 components:
   schemas:
@@ -690,9 +708,17 @@ components:
       schema:
         type: string
       required: true
+   BookStatus:
+      name: status
+      in: path
+      description: Status of the books (borrowed or available)
+      required: true
+      schema:
+        type: string
+        enum:
+          - borrowed
+          - available
 
-          
-             
               
           
           
