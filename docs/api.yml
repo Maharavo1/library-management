@@ -596,9 +596,20 @@ components:
           default: 50
           description: Number of items per page
     required: true
-
-      
- 
+   VisitorId:
+      name: vId
+      in: path
+      description: ID of the visitor
+      schema:
+        type: string
+      required: true
+   BookId:
+      name: bId
+      in: path
+      description: ID of the book
+      schema:
+        type: string
+      required: true
 
           
              
